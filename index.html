@@ -3,42 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monke 2 - Game Team</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Single Page Application</title>
+    <style>
+        .content {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+        nav {
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Monke 2!</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#games">Our Games</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <section id="about">
-        <h2>About Us</h2>
-        <p>We are a team of passionate gamers and developers dedicated to creating exciting games!</p>
-    </section>
+<nav>
+    <button onclick="showSection('home')">Home</button>
+    <button onclick="showSection('about')">About</button>
+    <button onclick="showSection('contact')">Contact</button>
+</nav>
 
-    <section id="games">
-        <h2>Our Games</h2>
-        <ul>
-            <li>Game 1: Description</li>
-            <li>Game 2: Description</li>
-            <li>Game 3: Description</li>
-        </ul>
-    </section>
+<div id="home" class="content active">
+    <h1>Welcome to the Home Page</h1>
+    <p>This is the home section of the single page application.</p>
+</div>
 
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>You can reach us at <a href="mailto:contact@monke2.com">contact@monke2.com</a></p>
-    </section>
+<div id="about" class="content">
+    <h1>About Us</h1>
+    <p>This section contains information about us.</p>
+</div>
 
-    <footer>
-        <p>&copy; 2023 Monke 2. All rights reserved.</p>
-    </footer>
+<div id="contact" class="content">
+    <h1>Contact Us</h1>
+    <p>This is how you can contact us.</p>
+</div>
+
+<script>
+    function showSection(section) {
+        // Hide all sections
+        const sections = document.querySelectorAll('.content');
+        sections.forEach(sec => sec.classList.remove('active'));
+        
+        // Show the selected section
+        document.getElementById(section).classList.add('active');
+    }
+</script>
+
 </body>
 </html>
